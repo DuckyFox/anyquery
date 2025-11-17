@@ -45,13 +45,17 @@ const searchValue = ref("");
     border: none;
     max-width: 840px;
     width: 100%;
+    font-family: Inter, sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 150%;
   }
 
   .searchInput::placeholder {
     font-family: Inter, sans-serif;
     font-weight: 400;
     font-size: 16px;
-    line-height: 150%;
+    line-height: 100%;
   }
 
   .searchIcon{
