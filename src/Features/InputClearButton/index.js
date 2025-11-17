@@ -1,4 +1,4 @@
-import InputClearButton from './ui/InputClearButton.vue';
+import InputClearButton from './Ui/InputClearButton.vue';
 
 export {
     InputClearButton

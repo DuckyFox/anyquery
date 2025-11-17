@@ -39,7 +39,7 @@ export const useItemsStore = defineStore('items', () => {
             priceWithDiscount: 1800 * ((100 - 0) / 100),
             imageLink: '',
             isInStock: true,
-            category: 'Авто',
+            category: 'Военная техника',
             size: '1:24'
         },
         {
@@ -52,7 +52,7 @@ export const useItemsStore = defineStore('items', () => {
             priceWithDiscount: 2200 * ((100 - 20) / 100),
             imageLink: '',
             isInStock: true,
-            category: 'Фантастика',
+            category: 'Авиация',
             size: '1:72'
         },
         {
@@ -65,7 +65,7 @@ export const useItemsStore = defineStore('items', () => {
             priceWithDiscount: 2600 * ((100 - 5) / 100),
             imageLink: '',
             isInStock: true,
-            category: 'Флот',
+            category: 'Корабли',
             size: '1:700'
         },
         {
@@ -78,7 +78,7 @@ export const useItemsStore = defineStore('items', () => {
             priceWithDiscount: 1700 * ((100 - 12) / 100),
             imageLink: '',
             isInStock: false,
-            category: 'Железная дорога',
+            category: 'Военная техника',
             size: '1:87'
         },
         {
@@ -91,7 +91,7 @@ export const useItemsStore = defineStore('items', () => {
             priceWithDiscount: 600 * ((100 - 0) / 100),
             imageLink: '',
             isInStock: true,
-            category: 'Фигурки',
+            category: 'Военная техника',
             size: '1:16'
         },
         {
@@ -117,7 +117,7 @@ export const useItemsStore = defineStore('items', () => {
             priceWithDiscount: 1900 * ((100 - 10) / 100),
             imageLink: '',
             isInStock: false,
-            category: 'Авто',
+            category: 'Военная техника',
             size: '1:24'
         },
         {
@@ -130,7 +130,7 @@ export const useItemsStore = defineStore('items', () => {
             priceWithDiscount: 2100 * ((100 - 25) / 100),
             imageLink: '',
             isInStock: true,
-            category: 'Фантастика',
+            category: 'Военная техника',
             size: '1:60'
         },
         {
@@ -143,7 +143,7 @@ export const useItemsStore = defineStore('items', () => {
             priceWithDiscount: 2000 * ((100 - 8) / 100),
             imageLink: '',
             isInStock: true,
-            category: 'Флот',
+            category: 'Корабли',
             size: '1:350'
         },
         {
@@ -169,7 +169,7 @@ export const useItemsStore = defineStore('items', () => {
             priceWithDiscount: 800 * ((100 - 15) / 100),
             imageLink: '',
             isInStock: true,
-            category: 'Фигурки',
+            category: 'Военная техника',
             size: '1:12'
         },
         {
@@ -182,7 +182,7 @@ export const useItemsStore = defineStore('items', () => {
             priceWithDiscount: 2500 * ((100 - 5) / 100),
             imageLink: '',
             isInStock: false,
-            category: 'Космос',
+            category: 'Военная техника',
             size: '1:144'
         },
         {
@@ -208,7 +208,7 @@ export const useItemsStore = defineStore('items', () => {
             priceWithDiscount: 1700 * ((100 - 5) / 100),
             imageLink: '',
             isInStock: true,
-            category: 'Гражданская техника',
+            category: 'Военная техника',
             size: '1:35'
         },
         {
@@ -221,7 +221,7 @@ export const useItemsStore = defineStore('items', () => {
             priceWithDiscount: 2300 * ((100 - 12) / 100),
             imageLink: '',
             isInStock: true,
-            category: 'Флот',
+            category: 'Корабли',
             size: '1:200'
         },
         {
@@ -234,7 +234,7 @@ export const useItemsStore = defineStore('items', () => {
             priceWithDiscount: 2600 * ((100 - 18) / 100),
             imageLink: '',
             isInStock: true,
-            category: 'Фантастика',
+            category: 'Военная техника',
             size: '1:48'
         },
         {
@@ -247,7 +247,7 @@ export const useItemsStore = defineStore('items', () => {
             priceWithDiscount: 1800 * ((100 - 10) / 100),
             imageLink: '',
             isInStock: false,
-            category: 'Железная дорога',
+            category: 'Военная техника',
             size: '1:87'
         },
         {
@@ -273,7 +273,7 @@ export const useItemsStore = defineStore('items', () => {
             priceWithDiscount: 1200 * ((100 - 15)/100),
             imageLink: '',
             isInStock: true,
-            category: 'Автомобили',
+            category: 'Военная техника',
             size: '1:24'
         },
         {
@@ -286,7 +286,7 @@ export const useItemsStore = defineStore('items', () => {
             priceWithDiscount: 800 * ((100 - 10)/100),
             imageLink: '',
             isInStock: true,
-            category: 'Роботы',
+            category: 'Военная техника',
             size: '1:18'
         },
         {
@@ -299,7 +299,7 @@ export const useItemsStore = defineStore('items', () => {
             priceWithDiscount: 950 * ((100 - 20)/100),
             imageLink: '',
             isInStock: true,
-            category: 'Самолеты',
+            category: 'Авиация',
             size: '1:32'
         },
         {
@@ -312,7 +312,7 @@ export const useItemsStore = defineStore('items', () => {
             priceWithDiscount: 1100 * ((100 - 5)/100),
             imageLink: '',
             isInStock: true,
-            category: 'Поезда',
+            category: 'Военная техника',
             size: '1:87'
         },
         {
@@ -364,7 +364,7 @@ export const useItemsStore = defineStore('items', () => {
             priceWithDiscount: 1500 * ((100 - 20)/100),
             imageLink: '',
             isInStock: true,
-            category: 'Космос',
+            category: 'Военная техника',
             size: '1:144'
         },
         {
@@ -390,7 +390,7 @@ export const useItemsStore = defineStore('items', () => {
             priceWithDiscount: 750 * ((100 - 5)/100),
             imageLink: '',
             isInStock: true,
-            category: 'Грузовики',
+            category: 'Военная техника',
             size: '1:24'
         },
         {
@@ -403,7 +403,7 @@ export const useItemsStore = defineStore('items', () => {
             priceWithDiscount: 650 * ((100 - 15)/100),
             imageLink: '',
             isInStock: true,
-            category: 'Роботы',
+            category: 'Военная техника',
             size: '1:18'
         },
         {
@@ -416,7 +416,7 @@ export const useItemsStore = defineStore('items', () => {
             priceWithDiscount: 400 * ((100 - 10)/100),
             imageLink: '',
             isInStock: true,
-            category: 'Архитектура',
+            category: 'Военная техника',
             size: '1:72'
         },
         {
@@ -429,7 +429,7 @@ export const useItemsStore = defineStore('items', () => {
             priceWithDiscount: 1300 * ((100 - 20)/100),
             imageLink: '',
             isInStock: true,
-            category: 'Автомобили',
+            category: 'Военная техника',
             size: '1:24'
         },
         {
@@ -455,7 +455,7 @@ export const useItemsStore = defineStore('items', () => {
             priceWithDiscount: 1000 * ((100 - 25)/100),
             imageLink: '',
             isInStock: false,
-            category: 'Животные',
+            category: 'Военная техника',
             size: '1:20'
         },
         {
@@ -468,7 +468,7 @@ export const useItemsStore = defineStore('items', () => {
             priceWithDiscount: 850 * ((100 - 10)/100),
             imageLink: '',
             isInStock: true,
-            category: 'Мотоциклы',
+            category: 'Военная техника',
             size: '1:12'
         },
         {
@@ -481,7 +481,7 @@ export const useItemsStore = defineStore('items', () => {
             priceWithDiscount: 1500 * ((100 - 20)/100),
             imageLink: '',
             isInStock: true,
-            category: 'Космос',
+            category: 'Военная техника',
             size: '1:144'
         },
         {
@@ -494,7 +494,7 @@ export const useItemsStore = defineStore('items', () => {
             priceWithDiscount: 700 * ((100 - 5)/100),
             imageLink: '',
             isInStock: true,
-            category: 'Грузовики',
+            category: 'Военная техника',
             size: '1:24'
         },
         {
@@ -507,7 +507,7 @@ export const useItemsStore = defineStore('items', () => {
             priceWithDiscount: 1200 * ((100 - 15)/100),
             imageLink: '',
             isInStock: false,
-            category: 'Поезда',
+            category: 'Военная техника',
             size: '1:87'
         },
         {
@@ -520,7 +520,7 @@ export const useItemsStore = defineStore('items', () => {
             priceWithDiscount: 950 * ((100 - 10)/100),
             imageLink: '',
             isInStock: true,
-            category: 'Архитектура',
+            category: 'Военная техника',
             size: '1:72'
         },
         {
@@ -559,7 +559,7 @@ export const useItemsStore = defineStore('items', () => {
             priceWithDiscount: 1200 * ((100 - 15) / 100),
             imageLink: '',
             isInStock: true,
-            category: 'Автомобили',
+            category: 'Военная техника',
             size: '1:24'
         },
         {
@@ -572,7 +572,7 @@ export const useItemsStore = defineStore('items', () => {
             priceWithDiscount: 900 * ((100 - 10) / 100),
             imageLink: '',
             isInStock: true,
-            category: 'Животные',
+            category: 'Военная техника',
             size: '1:20'
         },
         {
@@ -585,7 +585,7 @@ export const useItemsStore = defineStore('items', () => {
             priceWithDiscount: 1700 * ((100 - 25) / 100),
             imageLink: '',
             isInStock: false,
-            category: 'Самолеты',
+            category: 'Авиация',
             size: '1:144'
         },
         {
@@ -598,7 +598,7 @@ export const useItemsStore = defineStore('items', () => {
             priceWithDiscount: 950 * ((100 - 5) / 100),
             imageLink: '',
             isInStock: true,
-            category: 'Мотоциклы',
+            category: 'Военная техника',
             size: '1:12'
         },
         {
@@ -637,7 +637,7 @@ export const useItemsStore = defineStore('items', () => {
             priceWithDiscount: 1400 * ((100 - 20) / 100),
             imageLink: '',
             isInStock: true,
-            category: 'Роботы',
+            category: 'Военная техника',
             size: '1:18'
         },
         {
@@ -650,7 +650,7 @@ export const useItemsStore = defineStore('items', () => {
             priceWithDiscount: 1100 * ((100 - 5) / 100),
             imageLink: '',
             isInStock: true,
-            category: 'Поезда',
+            category: 'Военная техника',
             size: '1:87'
         }
     ]);

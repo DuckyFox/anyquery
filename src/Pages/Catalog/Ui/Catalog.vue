@@ -1,8 +1,8 @@
 <template>
     <Header/>
-    <main>
-        <ItemsList/>
+    <main :class="cl.main">
         <Filters/>
+        <ItemsList/>
     </main>
 </template>
 
@@ -15,7 +15,7 @@ import {Filters} from "@Widgets/Filters/index.js";
 <style module="cl" lang="scss">
     .main{
         display: flex;
-        margin-top: 24px;
+        margin: 24px auto;
         justify-content: space-between;
         max-width: 1720px;
         width: 100%;

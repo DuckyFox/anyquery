@@ -8,9 +8,11 @@
 import {useItemsStore} from "@Shared/Stores/index.js";
 import {storeToRefs} from "pinia";
 import {ItemCard} from "@Widgets/ItemCard/index.js";
+import {computed} from "vue";
 
 const store = useItemsStore()
-const { items } = storeToRefs(store)
+const { filterItems } = store
+const items = filterItems()
 
 </script>
 
