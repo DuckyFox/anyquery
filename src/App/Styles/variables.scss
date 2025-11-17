@@ -1,0 +1,81 @@
+//Colors
+//Colors Fonts
+$color-font-main: #333333;
+$color-font-hover: #125BAE;
+$color-font-history: #5A0488;
+$color-font-second: #AAAAAA;
+$color-font-bg: #E2EFFF;
+//Colors Brand
+$color-brand: #7397F5;
+//Colors Borders and Etc
+$color-border: #D5D5D5;
+$scroll-bar: #F2F2F2;
+$color-icons: #CBCBCB;
+$color-white: #FFFFFF;
+
+//Fonts
+//Desktop
+//Header IS
+$header-desktop-font-size: 22px;
+$header-desktop-font-weight: 400;
+$header-desktop-font-height: 28px;
+$header-IS: "#{$header-desktop-font-weight} #{$header-desktop-font-size}/#{$header-desktop-font-height}";
+//Input Request
+$input-request-font-size: 16px;
+$input-request-font-weight: 700;
+$input-request-font-height: 16px;
+$input-request: "#{$input-request-font-weight} #{$input-request-font-size}/#{$input-request-font-height}";
+//Autocomplete Btn
+$autocomplete-btn-font-size: 16px;
+$autocomplete-btn-font-weight: 700;
+$autocomplete-btn-font-height: 16px;
+$autocomplete-btn: "#{$autocomplete-btn-font-weight} #{$autocomplete-btn-font-size}/#{$autocomplete-btn-font-height}";
+//Show Results Btn
+$show-results-btn-font-size: 14px;
+$show-results-btn-font-weight: 400;
+$show-results-btn-font-height: 18px;
+$show-results-btn: "#{$show-results-btn-font-weight} #{$show-results-btn-font-size}/#{$show-results-btn-font-height}";
+
+//Mobile
+//Mobile Header IS
+$header-mobile-IS-font-size: 20px;
+$header-mobile-IS-font-weight: 400;
+$header-mobile-IS-font-height: normal;
+$header-mobile-IS: "#{$header-mobile-IS-font-weight} #{$header-mobile-IS-font-size}/#{$header-mobile-IS-font-height}";
+//Header AC
+$header-mobile-AC-font-size: 16px;
+$header-mobile-AC-font-weight: 700;
+$header-mobile-AC-font-height: 14px;
+$header-mobile-AC: "#{$header-mobile-AC-font-weight} #{$header-mobile-AC-font-size}/#{$header-mobile-AC-font-height}";
+//Main Mobile
+$main-mobile-font-size: 16px;
+$main-mobile-font-weight: 400;
+$main-mobile-font-height: 14px;
+$main-mobile: "#{$main-mobile-font-weight} #{$main-mobile-font-size}/#{$main-mobile-font-height}";
+
+//General
+//Main General
+$main-general-font-size: 14px;
+$main-general-font-weight: 400;
+$main-general-font-height: 16px;
+$main-general: "#{$main-general-font-weight} #{$main-general-font-size}/#{$main-general-font-height}";
+//Header Filter
+$header-filter-font-size: 16px;
+$header-filter-font-weight: 700;
+$header-filter-font-height: 20px;
+$header-filter: "#{$header-filter-font-weight} #{$header-filter-font-size}/#{$header-filter-font-height}";
+//Header AC
+$header-AC-font-size: 14px;
+$header-AC-font-weight: 700;
+$header-AC-font-height: 14px;
+$header-AC: "#{$header-AC-font-weight} #{$header-AC-font-size}/#{$header-AC-font-height}";
+//Paragraph
+$paragraph-font-size: 12px;
+$paragraph-font-weight: 400;
+$paragraph-font-height: 14px;
+$paragraph: "#{$paragraph-font-weight} #{$paragraph-font-size}/#{$paragraph-font-height}";
+//Clear Query and Filter
+$clear-query-font-size: 12px;
+$clear-query-font-weight: 400;
+$clear-query-font-height: 12px;
+$clear-query: "#{$clear-query-font-weight} #{$clear-query-font-size}/#{$clear-query-font-height}";
