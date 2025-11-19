@@ -2,6 +2,7 @@
   <input
       :placeholder="placeholder"
       :class="className"
+      :type="type"
       v-model="searchValue"
   />
 </template>
@@ -10,11 +11,15 @@
 import {toRefs} from "vue";
 
 const props = defineProps({
-  placeholder: String,
-  className: {
-    type: String,
-    required: false,
-  },
+    placeholder: String,
+    className: {
+        type: String,
+        required: false,
+    },
+    type: {
+        type: String,
+        required: false,
+    },
 })
 const { placeholder, className } = toRefs(props)
 const searchValue = defineModel()

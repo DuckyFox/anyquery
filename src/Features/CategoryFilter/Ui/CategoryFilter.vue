@@ -8,7 +8,7 @@
                 {{items.length}}
             </h5>
         </div>
-        <div :class="cl.bottomCategory" v-for="category in categories" :key="category.id">
+        <div :class="cl.bottomCategory" v-for="category in allCategories" :key="category.id">
             <h4 :class="cl.bottomCategoryTitle">
                 {{category.category}}
             </h4>
@@ -22,24 +22,11 @@
 <script setup>
 import {useItemsStore} from "@Shared/Stores/index.js";
 import {storeToRefs} from "pinia";
+
 const store = useItemsStore()
-const { items } = storeToRefs(store)
+const { items, allCategories } = storeToRefs(store)
 const { filterItems } = store
 
-const findAllCategories = (items) => {
-    const categories = []
-    const categoriesArray = [...new Set(items.map((item) => item.category))]
-
-    return categoriesArray.map((category, index) => {
-        return {
-            id: `${index +1}`,
-            category
-        }
-    })
-}
-
-const categories = findAllCategories(items.value)
-console.log(categories)
 const findItemsAmountForCategory = (category) => {
     return items.value.filter((item) => item.category === category).length
 }

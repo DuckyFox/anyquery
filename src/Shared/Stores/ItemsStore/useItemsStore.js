@@ -1,5 +1,5 @@
 import {defineStore} from "pinia";
-import {ref} from "vue";
+import {ref, computed} from "vue";
 
 export const useItemsStore = defineStore('items', () => {
     const items = ref([
@@ -659,5 +659,35 @@ export const useItemsStore = defineStore('items', () => {
         return items
     }
 
-    return { items, filterItems }
+    const allBrands = computed(() => {
+        const uniqueBrands = [...new Set(items.value.map((item)=>item.brand))]
+        return uniqueBrands.map((brand,index) => {
+            return {
+                id: `${index}`,
+                brand,
+            }
+        })
+    })
+
+    const allCategories = computed(() => {
+        const categoriesArray = [...new Set(items.value.map((item) => item.category))]
+        return categoriesArray.map((category, index) => {
+            return {
+                id: `${index +1}`,
+                category
+            }
+        })
+    })
+
+    const allSizes = computed(() => {
+        const sizesArray = [...new Set(items.value.map((item) => item.size))]
+        return sizesArray.map((size, index) => {
+            return {
+                id: `${index +1}`,
+                size,
+            }
+        })
+    })
+
+    return { items, filterItems, allBrands, allCategories, allSizes }
 })
