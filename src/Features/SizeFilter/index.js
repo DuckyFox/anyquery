@@ -1,5 +1,3 @@
-import SizeFilter from "./Ui/SizeFilter.vue";
+import SizeFilter from './Ui/SizeFilter.vue'
 
-export {
-    SizeFilter
-}
+export { SizeFilter }

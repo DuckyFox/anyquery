@@ -1,13 +1,11 @@
 <template>
-  <div>
-    <Catalog/>
-  </div>
+    <div>
+        <Catalog />
+    </div>
 </template>
 
 <script setup>
-import Catalog from "../Pages/Catalog/Ui/Catalog.vue";
+import Catalog from '../Pages/Catalog/Ui/Catalog.vue'
 </script>
 
-<style scoped>
-
-</style>
+<style scoped></style>

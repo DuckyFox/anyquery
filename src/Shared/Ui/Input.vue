@@ -1,14 +1,9 @@
 <template>
-  <input
-      :placeholder="placeholder"
-      :class="className"
-      :type="type"
-      v-model="searchValue"
-  />
+    <input v-model="searchValue" :placeholder="placeholder" :class="className" :type="type" />
 </template>
 
 <script setup>
-import {toRefs} from "vue";
+import { toRefs } from 'vue'
 
 const props = defineProps({
     placeholder: String,
@@ -22,6 +17,8 @@ const props = defineProps({
     },
 })
 const { placeholder, className } = toRefs(props)
-const searchValue = defineModel()
-
+const searchValue = defineModel({
+    type: String,
+    default: '',
+})
 </script>

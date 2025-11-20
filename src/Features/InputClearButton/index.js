@@ -1,5 +1,3 @@
-import InputClearButton from './Ui/InputClearButton.vue';
+import InputClearButton from './Ui/InputClearButton.vue'
 
-export {
-    InputClearButton
-}
+export { InputClearButton }

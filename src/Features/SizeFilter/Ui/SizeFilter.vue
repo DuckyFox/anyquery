@@ -1,44 +1,44 @@
 <template>
     <div :class="cl.sizeFilter">
         <div :class="cl.sizeFilterTop">
-            <h3 :class="cl.sizeFilterTitle">
-                Размер
-            </h3>
+            <h3 :class="cl.sizeFilterTitle">Размер</h3>
         </div>
         <div :class="cl.sizeFilterItems">
-            <div :class="cl.sizeFilterItem" v-for="size in allSizes" :key="size.id">
+            <div v-for="size in allSizes" :key="size.id" :class="cl.sizeFilterItem">
                 <label :class="cl.sizeFilterInputShell">
                     <input
                         :class="cl.sizeFilterHiddenCheckbox"
                         type="checkbox"
                         :checked="sizeQuery.includes(size.size)"
-                        @change="()=>handleSizeToggle(size.size)"
+                        @change="() => handleSizeToggle(size.size)"
                     />
-                    <span :class="[cl.sizeFilterCustomCheckbox, sizeQuery.includes(size.size) ? cl.checked : '']"></span>
-                    <span :class="cl.sizeFilterItemName">{{size.size}}</span>
+                    <span
+                        :class="[
+                            cl.sizeFilterCustomCheckbox,
+                            sizeQuery.includes(size.size) ? cl.checked : '',
+                        ]"
+                    ></span>
+                    <span :class="cl.sizeFilterItemName">{{ size.size }}</span>
                 </label>
-                <h5 :class="cl.sizeFilterItemCount">{{findItemsAmountForSize(size.size)}}</h5>
+                <h5 :class="cl.sizeFilterItemCount">{{ findItemsAmountForSize(size.size) }}</h5>
             </div>
         </div>
     </div>
 </template>
 
 <script setup>
-import {useItemsStore} from "@Shared/Stores/index.js";
-import {storeToRefs} from "pinia";
-import {ref} from "vue";
-import {InputClearButton} from "@Features/InputClearButton/index.js";
-import SmallSearchIcon from "@Shared/Assets/Icons/smallSearchIcon.svg";
+import { useItemsStore } from '@Shared/Stores/index.js'
+import { storeToRefs } from 'pinia'
 
 const store = useItemsStore()
-const { filteredItems, allSizes, sizeQuery} = storeToRefs(store)
+const { filteredItems, allSizes, sizeQuery } = storeToRefs(store)
 const { setSizeQuery } = store
 
-const findItemsAmountForSize = (size) => {
-    return filteredItems.value.filter((item) => item.size === size).length
+const findItemsAmountForSize = size => {
+    return filteredItems.value.filter(item => item.size === size).length
 }
 
-const handleSizeToggle = (size) => {
+const handleSizeToggle = size => {
     const curSizes = [...sizeQuery.value]
     if (curSizes.includes(size)) {
         const index = curSizes.indexOf(size)
@@ -48,29 +48,28 @@ const handleSizeToggle = (size) => {
     }
     setSizeQuery(curSizes)
 }
-
 </script>
 
 <style lang="scss" module="cl">
-.sizeFilter{
+.sizeFilter {
     display: flex;
     flex-direction: column;
     row-gap: 16px;
 }
 
-.sizeFilterTop{
+.sizeFilterTop {
     display: flex;
     justify-content: center;
     align-items: flex-end;
 }
 
-.sizeFilterTitle{
+.sizeFilterTitle {
     margin: 0;
     color: $color-font-main;
     font: $header-filter;
 }
 
-.sizeFilterItems{
+.sizeFilterItems {
     max-height: 180px;
     overflow-y: scroll;
     display: flex;
@@ -91,7 +90,7 @@ const handleSizeToggle = (size) => {
     }
 }
 
-.sizeFilterItem{
+.sizeFilterItem {
     max-width: 264px;
     width: 100%;
     display: flex;
@@ -99,13 +98,13 @@ const handleSizeToggle = (size) => {
     align-items: center;
 }
 
-.sizeFilterInputShell{
+.sizeFilterInputShell {
     display: flex;
     column-gap: 12px;
     align-items: center;
 }
 
-.sizeFilterHiddenCheckbox{
+.sizeFilterHiddenCheckbox {
     position: absolute;
     opacity: 0;
     pointer-events: none;
@@ -113,7 +112,7 @@ const handleSizeToggle = (size) => {
     height: 0;
 }
 
-.sizeFilterCustomCheckbox{
+.sizeFilterCustomCheckbox {
     margin: 0;
     width: 20px;
     height: 20px;
@@ -121,7 +120,9 @@ const handleSizeToggle = (size) => {
     border-radius: 3px;
     background-color: transparent;
     border: 1px solid $color-border;
-    transition: all 0.2s ease;
+    transition:
+        background-color 0.2s ease,
+        border-color 0.2s ease;
     cursor: pointer;
 }
 
@@ -139,20 +140,19 @@ const handleSizeToggle = (size) => {
     font-size: 14px;
 }
 
-.sizeFilterCustomCheckbox:hover{
+.sizeFilterCustomCheckbox:hover {
     border: 1px solid $color-brand;
 }
 
-.sizeFilterItemName{
+.sizeFilterItemName {
     margin: 0;
     color: $color-font-main;
     font: $main-general;
 }
 
-.sizeFilterItemCount{
+.sizeFilterItemCount {
     margin: 0;
     color: $color-font-second;
     font: $paragraph;
 }
-
 </style>

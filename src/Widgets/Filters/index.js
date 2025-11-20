@@ -1,5 +1,3 @@
-import Filters from "./Ui/Filters.vue";
+import Filters from './Ui/Filters.vue'
 
-export {
-    Filters
-}
+export { Filters }

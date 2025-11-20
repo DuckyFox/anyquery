@@ -1,5 +1,3 @@
-import ItemsList from "./Ui/ItemsList.vue";
+import ItemsList from './Ui/ItemsList.vue'
 
-export {
-    ItemsList
-}
+export { ItemsList }

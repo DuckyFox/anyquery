@@ -1,5 +1,5 @@
-import {defineStore} from "pinia";
-import {ref, computed} from "vue";
+import { defineStore } from 'pinia'
+import { ref, computed } from 'vue'
 
 export const useItemsStore = defineStore('items', () => {
     const items = ref([
@@ -14,7 +14,7 @@ export const useItemsStore = defineStore('items', () => {
             imageLink: '',
             isInStock: true,
             category: 'Военная техника',
-            size: '1:35'
+            size: '1:35',
         },
         {
             id: 2,
@@ -27,7 +27,7 @@ export const useItemsStore = defineStore('items', () => {
             imageLink: '',
             isInStock: true,
             category: 'Авиация',
-            size: '1:48'
+            size: '1:48',
         },
         {
             id: 3,
@@ -40,7 +40,7 @@ export const useItemsStore = defineStore('items', () => {
             imageLink: '',
             isInStock: true,
             category: 'Военная техника',
-            size: '1:24'
+            size: '1:24',
         },
         {
             id: 4,
@@ -53,7 +53,7 @@ export const useItemsStore = defineStore('items', () => {
             imageLink: '',
             isInStock: true,
             category: 'Авиация',
-            size: '1:72'
+            size: '1:72',
         },
         {
             id: 5,
@@ -66,7 +66,7 @@ export const useItemsStore = defineStore('items', () => {
             imageLink: '',
             isInStock: true,
             category: 'Корабли',
-            size: '1:700'
+            size: '1:700',
         },
         {
             id: 6,
@@ -79,7 +79,7 @@ export const useItemsStore = defineStore('items', () => {
             imageLink: '',
             isInStock: false,
             category: 'Военная техника',
-            size: '1:87'
+            size: '1:87',
         },
         {
             id: 7,
@@ -92,7 +92,7 @@ export const useItemsStore = defineStore('items', () => {
             imageLink: '',
             isInStock: true,
             category: 'Военная техника',
-            size: '1:16'
+            size: '1:16',
         },
         {
             id: 8,
@@ -105,7 +105,7 @@ export const useItemsStore = defineStore('items', () => {
             imageLink: '',
             isInStock: true,
             category: 'Авиация',
-            size: '1:48'
+            size: '1:48',
         },
         {
             id: 9,
@@ -118,7 +118,7 @@ export const useItemsStore = defineStore('items', () => {
             imageLink: '',
             isInStock: false,
             category: 'Военная техника',
-            size: '1:24'
+            size: '1:24',
         },
         {
             id: 10,
@@ -131,7 +131,7 @@ export const useItemsStore = defineStore('items', () => {
             imageLink: '',
             isInStock: true,
             category: 'Военная техника',
-            size: '1:60'
+            size: '1:60',
         },
         {
             id: 11,
@@ -144,7 +144,7 @@ export const useItemsStore = defineStore('items', () => {
             imageLink: '',
             isInStock: true,
             category: 'Корабли',
-            size: '1:350'
+            size: '1:350',
         },
         {
             id: 12,
@@ -157,7 +157,7 @@ export const useItemsStore = defineStore('items', () => {
             imageLink: '',
             isInStock: true,
             category: 'Военная техника',
-            size: '1:35'
+            size: '1:35',
         },
         {
             id: 13,
@@ -170,7 +170,7 @@ export const useItemsStore = defineStore('items', () => {
             imageLink: '',
             isInStock: true,
             category: 'Военная техника',
-            size: '1:12'
+            size: '1:12',
         },
         {
             id: 14,
@@ -183,7 +183,7 @@ export const useItemsStore = defineStore('items', () => {
             imageLink: '',
             isInStock: false,
             category: 'Военная техника',
-            size: '1:144'
+            size: '1:144',
         },
         {
             id: 15,
@@ -196,7 +196,7 @@ export const useItemsStore = defineStore('items', () => {
             imageLink: '',
             isInStock: true,
             category: 'Авиация',
-            size: '1:144'
+            size: '1:144',
         },
         {
             id: 16,
@@ -209,7 +209,7 @@ export const useItemsStore = defineStore('items', () => {
             imageLink: '',
             isInStock: true,
             category: 'Военная техника',
-            size: '1:35'
+            size: '1:35',
         },
         {
             id: 17,
@@ -222,7 +222,7 @@ export const useItemsStore = defineStore('items', () => {
             imageLink: '',
             isInStock: true,
             category: 'Корабли',
-            size: '1:200'
+            size: '1:200',
         },
         {
             id: 18,
@@ -235,7 +235,7 @@ export const useItemsStore = defineStore('items', () => {
             imageLink: '',
             isInStock: true,
             category: 'Военная техника',
-            size: '1:48'
+            size: '1:48',
         },
         {
             id: 19,
@@ -248,7 +248,7 @@ export const useItemsStore = defineStore('items', () => {
             imageLink: '',
             isInStock: false,
             category: 'Военная техника',
-            size: '1:87'
+            size: '1:87',
         },
         {
             id: 20,
@@ -261,7 +261,7 @@ export const useItemsStore = defineStore('items', () => {
             imageLink: '',
             isInStock: true,
             category: 'Военная техника',
-            size: '1:35'
+            size: '1:35',
         },
         {
             id: 21,
@@ -270,11 +270,11 @@ export const useItemsStore = defineStore('items', () => {
             isBestseller: true,
             discount: 15,
             fullPrice: 1200,
-            priceWithDiscount: 1200 * ((100 - 15)/100),
+            priceWithDiscount: 1200 * ((100 - 15) / 100),
             imageLink: '',
             isInStock: true,
             category: 'Военная техника',
-            size: '1:24'
+            size: '1:24',
         },
         {
             id: 22,
@@ -283,11 +283,11 @@ export const useItemsStore = defineStore('items', () => {
             isBestseller: false,
             discount: 10,
             fullPrice: 800,
-            priceWithDiscount: 800 * ((100 - 10)/100),
+            priceWithDiscount: 800 * ((100 - 10) / 100),
             imageLink: '',
             isInStock: true,
             category: 'Военная техника',
-            size: '1:18'
+            size: '1:18',
         },
         {
             id: 23,
@@ -296,11 +296,11 @@ export const useItemsStore = defineStore('items', () => {
             isBestseller: true,
             discount: 20,
             fullPrice: 950,
-            priceWithDiscount: 950 * ((100 - 20)/100),
+            priceWithDiscount: 950 * ((100 - 20) / 100),
             imageLink: '',
             isInStock: true,
             category: 'Авиация',
-            size: '1:32'
+            size: '1:32',
         },
         {
             id: 24,
@@ -309,11 +309,11 @@ export const useItemsStore = defineStore('items', () => {
             isBestseller: false,
             discount: 5,
             fullPrice: 1100,
-            priceWithDiscount: 1100 * ((100 - 5)/100),
+            priceWithDiscount: 1100 * ((100 - 5) / 100),
             imageLink: '',
             isInStock: true,
             category: 'Военная техника',
-            size: '1:87'
+            size: '1:87',
         },
         {
             id: 25,
@@ -322,11 +322,11 @@ export const useItemsStore = defineStore('items', () => {
             isBestseller: true,
             discount: 25,
             fullPrice: 1300,
-            priceWithDiscount: 1300 * ((100 - 25)/100),
+            priceWithDiscount: 1300 * ((100 - 25) / 100),
             imageLink: '',
             isInStock: false,
             category: 'Военная техника',
-            size: '1:35'
+            size: '1:35',
         },
         {
             id: 26,
@@ -335,11 +335,11 @@ export const useItemsStore = defineStore('items', () => {
             isBestseller: false,
             discount: 10,
             fullPrice: 2000,
-            priceWithDiscount: 2000 * ((100 - 10)/100),
+            priceWithDiscount: 2000 * ((100 - 10) / 100),
             imageLink: '',
             isInStock: true,
             category: 'Корабли',
-            size: '1:350'
+            size: '1:350',
         },
         {
             id: 27,
@@ -348,11 +348,11 @@ export const useItemsStore = defineStore('items', () => {
             isBestseller: true,
             discount: 15,
             fullPrice: 900,
-            priceWithDiscount: 900 * ((100 - 15)/100),
+            priceWithDiscount: 900 * ((100 - 15) / 100),
             imageLink: '',
             isInStock: true,
             category: 'Мотоциклы',
-            size: '1:12'
+            size: '1:12',
         },
         {
             id: 28,
@@ -361,11 +361,11 @@ export const useItemsStore = defineStore('items', () => {
             isBestseller: false,
             discount: 20,
             fullPrice: 1500,
-            priceWithDiscount: 1500 * ((100 - 20)/100),
+            priceWithDiscount: 1500 * ((100 - 20) / 100),
             imageLink: '',
             isInStock: true,
             category: 'Военная техника',
-            size: '1:144'
+            size: '1:144',
         },
         {
             id: 29,
@@ -374,11 +374,11 @@ export const useItemsStore = defineStore('items', () => {
             isBestseller: true,
             discount: 30,
             fullPrice: 1250,
-            priceWithDiscount: 1250 * ((100 - 30)/100),
+            priceWithDiscount: 1250 * ((100 - 30) / 100),
             imageLink: '',
             isInStock: false,
             category: 'Военная техника',
-            size: '1:48'
+            size: '1:48',
         },
         {
             id: 30,
@@ -387,11 +387,11 @@ export const useItemsStore = defineStore('items', () => {
             isBestseller: false,
             discount: 5,
             fullPrice: 750,
-            priceWithDiscount: 750 * ((100 - 5)/100),
+            priceWithDiscount: 750 * ((100 - 5) / 100),
             imageLink: '',
             isInStock: true,
             category: 'Военная техника',
-            size: '1:24'
+            size: '1:24',
         },
         {
             id: 31,
@@ -400,11 +400,11 @@ export const useItemsStore = defineStore('items', () => {
             isBestseller: true,
             discount: 15,
             fullPrice: 650,
-            priceWithDiscount: 650 * ((100 - 15)/100),
+            priceWithDiscount: 650 * ((100 - 15) / 100),
             imageLink: '',
             isInStock: true,
             category: 'Военная техника',
-            size: '1:18'
+            size: '1:18',
         },
         {
             id: 32,
@@ -413,11 +413,11 @@ export const useItemsStore = defineStore('items', () => {
             isBestseller: false,
             discount: 10,
             fullPrice: 400,
-            priceWithDiscount: 400 * ((100 - 10)/100),
+            priceWithDiscount: 400 * ((100 - 10) / 100),
             imageLink: '',
             isInStock: true,
             category: 'Военная техника',
-            size: '1:72'
+            size: '1:72',
         },
         {
             id: 33,
@@ -426,11 +426,11 @@ export const useItemsStore = defineStore('items', () => {
             isBestseller: true,
             discount: 20,
             fullPrice: 1300,
-            priceWithDiscount: 1300 * ((100 - 20)/100),
+            priceWithDiscount: 1300 * ((100 - 20) / 100),
             imageLink: '',
             isInStock: true,
             category: 'Военная техника',
-            size: '1:24'
+            size: '1:24',
         },
         {
             id: 34,
@@ -439,11 +439,11 @@ export const useItemsStore = defineStore('items', () => {
             isBestseller: false,
             discount: 15,
             fullPrice: 1800,
-            priceWithDiscount: 1800 * ((100 - 15)/100),
+            priceWithDiscount: 1800 * ((100 - 15) / 100),
             imageLink: '',
             isInStock: true,
             category: 'Корабли',
-            size: '1:350'
+            size: '1:350',
         },
         {
             id: 35,
@@ -452,11 +452,11 @@ export const useItemsStore = defineStore('items', () => {
             isBestseller: true,
             discount: 25,
             fullPrice: 1000,
-            priceWithDiscount: 1000 * ((100 - 25)/100),
+            priceWithDiscount: 1000 * ((100 - 25) / 100),
             imageLink: '',
             isInStock: false,
             category: 'Военная техника',
-            size: '1:20'
+            size: '1:20',
         },
         {
             id: 36,
@@ -465,11 +465,11 @@ export const useItemsStore = defineStore('items', () => {
             isBestseller: false,
             discount: 10,
             fullPrice: 850,
-            priceWithDiscount: 850 * ((100 - 10)/100),
+            priceWithDiscount: 850 * ((100 - 10) / 100),
             imageLink: '',
             isInStock: true,
             category: 'Военная техника',
-            size: '1:12'
+            size: '1:12',
         },
         {
             id: 37,
@@ -478,11 +478,11 @@ export const useItemsStore = defineStore('items', () => {
             isBestseller: true,
             discount: 20,
             fullPrice: 1500,
-            priceWithDiscount: 1500 * ((100 - 20)/100),
+            priceWithDiscount: 1500 * ((100 - 20) / 100),
             imageLink: '',
             isInStock: true,
             category: 'Военная техника',
-            size: '1:144'
+            size: '1:144',
         },
         {
             id: 38,
@@ -491,11 +491,11 @@ export const useItemsStore = defineStore('items', () => {
             isBestseller: false,
             discount: 5,
             fullPrice: 700,
-            priceWithDiscount: 700 * ((100 - 5)/100),
+            priceWithDiscount: 700 * ((100 - 5) / 100),
             imageLink: '',
             isInStock: true,
             category: 'Военная техника',
-            size: '1:24'
+            size: '1:24',
         },
         {
             id: 39,
@@ -504,11 +504,11 @@ export const useItemsStore = defineStore('items', () => {
             isBestseller: true,
             discount: 15,
             fullPrice: 1200,
-            priceWithDiscount: 1200 * ((100 - 15)/100),
+            priceWithDiscount: 1200 * ((100 - 15) / 100),
             imageLink: '',
             isInStock: false,
             category: 'Военная техника',
-            size: '1:87'
+            size: '1:87',
         },
         {
             id: 40,
@@ -517,11 +517,11 @@ export const useItemsStore = defineStore('items', () => {
             isBestseller: false,
             discount: 10,
             fullPrice: 950,
-            priceWithDiscount: 950 * ((100 - 10)/100),
+            priceWithDiscount: 950 * ((100 - 10) / 100),
             imageLink: '',
             isInStock: true,
             category: 'Военная техника',
-            size: '1:72'
+            size: '1:72',
         },
         {
             id: 41,
@@ -534,7 +534,7 @@ export const useItemsStore = defineStore('items', () => {
             imageLink: '',
             isInStock: true,
             category: 'Военная техника',
-            size: '1:48'
+            size: '1:48',
         },
         {
             id: 42,
@@ -547,7 +547,7 @@ export const useItemsStore = defineStore('items', () => {
             imageLink: '',
             isInStock: true,
             category: 'Корабли',
-            size: '1:350'
+            size: '1:350',
         },
         {
             id: 43,
@@ -560,7 +560,7 @@ export const useItemsStore = defineStore('items', () => {
             imageLink: '',
             isInStock: true,
             category: 'Военная техника',
-            size: '1:24'
+            size: '1:24',
         },
         {
             id: 44,
@@ -573,7 +573,7 @@ export const useItemsStore = defineStore('items', () => {
             imageLink: '',
             isInStock: true,
             category: 'Военная техника',
-            size: '1:20'
+            size: '1:20',
         },
         {
             id: 45,
@@ -586,7 +586,7 @@ export const useItemsStore = defineStore('items', () => {
             imageLink: '',
             isInStock: false,
             category: 'Авиация',
-            size: '1:144'
+            size: '1:144',
         },
         {
             id: 46,
@@ -599,7 +599,7 @@ export const useItemsStore = defineStore('items', () => {
             imageLink: '',
             isInStock: true,
             category: 'Военная техника',
-            size: '1:12'
+            size: '1:12',
         },
         {
             id: 47,
@@ -612,7 +612,7 @@ export const useItemsStore = defineStore('items', () => {
             imageLink: '',
             isInStock: true,
             category: 'Корабли',
-            size: '1:72'
+            size: '1:72',
         },
         {
             id: 48,
@@ -625,7 +625,7 @@ export const useItemsStore = defineStore('items', () => {
             imageLink: '',
             isInStock: true,
             category: 'Военная техника',
-            size: '1:35'
+            size: '1:35',
         },
         {
             id: 49,
@@ -638,7 +638,7 @@ export const useItemsStore = defineStore('items', () => {
             imageLink: '',
             isInStock: true,
             category: 'Военная техника',
-            size: '1:18'
+            size: '1:18',
         },
         {
             id: 50,
@@ -651,13 +651,13 @@ export const useItemsStore = defineStore('items', () => {
             imageLink: '',
             isInStock: true,
             category: 'Военная техника',
-            size: '1:87'
-        }
-    ]);
+            size: '1:87',
+        },
+    ])
 
     const allBrands = computed(() => {
-        const uniqueBrands = [...new Set(items.value.map((item)=>item.brand))]
-        return uniqueBrands.map((brand,index) => {
+        const uniqueBrands = [...new Set(items.value.map(item => item.brand))]
+        return uniqueBrands.map((brand, index) => {
             return {
                 id: `${index}`,
                 brand,
@@ -666,20 +666,20 @@ export const useItemsStore = defineStore('items', () => {
     })
 
     const allCategories = computed(() => {
-        const categoriesArray = [...new Set(items.value.map((item) => item.category))]
+        const categoriesArray = [...new Set(items.value.map(item => item.category))]
         return categoriesArray.map((category, index) => {
             return {
-                id: `${index +1}`,
-                category
+                id: `${index + 1}`,
+                category,
             }
         })
     })
 
     const allSizes = computed(() => {
-        const sizesArray = [...new Set(items.value.map((item) => item.size))]
+        const sizesArray = [...new Set(items.value.map(item => item.size))]
         return sizesArray.map((size, index) => {
             return {
-                id: `${index +1}`,
+                id: `${index + 1}`,
                 size,
             }
         })
@@ -687,13 +687,13 @@ export const useItemsStore = defineStore('items', () => {
 
     const searchQuery = ref('')
 
-    const setSearchQuery = (newValue) => {
+    const setSearchQuery = newValue => {
         searchQuery.value = newValue.toLowerCase()
     }
 
     const categoryQuery = ref('Сборные модели')
 
-    const setCategoryQuery = (newValue) => {
+    const setCategoryQuery = newValue => {
         categoryQuery.value = newValue
     }
 
@@ -702,56 +702,59 @@ export const useItemsStore = defineStore('items', () => {
         max: 100000,
     })
 
-    const setPriceQuery = (newValue) => {
+    const setPriceQuery = newValue => {
         priceQuery.value = newValue
     }
 
     const brandQuery = ref([])
 
-    const setBrandQuery = (newValue) => {
+    const setBrandQuery = newValue => {
         brandQuery.value = newValue
     }
 
     const sizeQuery = ref([])
 
-    const setSizeQuery = (newValue) => {
+    const setSizeQuery = newValue => {
         sizeQuery.value = newValue
     }
 
-    const searchFilter = (item) => {
-        if (!searchQuery.value) return true;
-        return item.title.toLowerCase().includes(searchQuery.value.toLowerCase());
-    };
-
-    const categoryFilter = (item) => {
-        if (categoryQuery.value === 'Сборные модели') return true;
-        return item.category === categoryQuery.value;
-    };
-
-    const priceFilter = (item) => {
-        return item.priceWithDiscount >= priceQuery.value.min && item.priceWithDiscount <= priceQuery.value.max
+    const searchFilter = item => {
+        if (!searchQuery.value) return true
+        return item.title.toLowerCase().includes(searchQuery.value.toLowerCase())
     }
 
-    const brandFilter = (item) => {
+    const categoryFilter = item => {
+        if (categoryQuery.value === 'Сборные модели') return true
+        return item.category === categoryQuery.value
+    }
+
+    const priceFilter = item => {
+        return (
+            item.priceWithDiscount >= priceQuery.value.min &&
+            item.priceWithDiscount <= priceQuery.value.max
+        )
+    }
+
+    const brandFilter = item => {
         if (brandQuery.value.length === 0) return true
         return brandQuery.value.includes(item.brand)
     }
 
-    const sizeFilter = (item) => {
+    const sizeFilter = item => {
         if (sizeQuery.value.length === 0) return true
         return sizeQuery.value.includes(item.size)
     }
 
     const filteredItems = computed(() => {
-
-        return items.value.filter(item =>
-            searchFilter(item) &&
-            categoryFilter(item) &&
-            priceFilter(item) &&
-            brandFilter(item) &&
-            sizeFilter(item)
-        );
-    });
+        return items.value.filter(
+            item =>
+                searchFilter(item) &&
+                categoryFilter(item) &&
+                priceFilter(item) &&
+                brandFilter(item) &&
+                sizeFilter(item)
+        )
+    })
 
     return {
         items,
@@ -766,6 +769,6 @@ export const useItemsStore = defineStore('items', () => {
         brandQuery,
         setBrandQuery,
         sizeQuery,
-        setSizeQuery
+        setSizeQuery,
     }
 })

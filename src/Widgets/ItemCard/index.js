@@ -1,5 +1,3 @@
-import ItemCard from "./Ui/ItemCard.vue";
+import ItemCard from './Ui/ItemCard.vue'
 
-export {
-    ItemCard
-}
+export { ItemCard }

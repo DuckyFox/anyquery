@@ -90,3 +90,8 @@ $clear-query-font-size: 12px;
 $clear-query-font-weight: 400;
 $clear-query-font-height: 12px;
 $clear-query: #{$clear-query-font-weight} #{$clear-query-font-size}/#{$clear-query-font-height} PTSans;
+
+// Breakpoints
+$breakpoint-mobile: 375px;
+$breakpoint-tablet: 768px;
+$breakpoint-desktop: 1440px;

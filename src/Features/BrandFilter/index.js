@@ -1,5 +1,3 @@
-import BrandFilter from "./Ui/BrandFilter.vue";
+import BrandFilter from './Ui/BrandFilter.vue'
 
-export {
-    BrandFilter
-}
+export { BrandFilter }

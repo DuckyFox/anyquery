@@ -1,5 +1,3 @@
-import CategoryFilter from './ui/CategoryFilter.vue';
+import CategoryFilter from './ui/CategoryFilter.vue'
 
-export {
-    CategoryFilter
-}
+export { CategoryFilter }

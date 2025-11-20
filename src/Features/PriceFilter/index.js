@@ -1,5 +1,3 @@
-import PriceFilter from './Ui/PriceFilter.vue';
+import PriceFilter from './Ui/PriceFilter.vue'
 
-export {
-    PriceFilter
-}
+export { PriceFilter }
