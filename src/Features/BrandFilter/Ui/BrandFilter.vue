@@ -4,19 +4,31 @@
             <h3 :class="cl.brandFilterTitle">
                 Бренд
             </h3>
-            <Button :className="cl.brandFilterClearButton">
+            <Button @click="()=>handleCleanBrands()" :className="cl.brandFilterClearButton">
                 Очистить
             </Button>
         </div>
-        <form :class="cl.brandFilterSeachForm">
+        <form @submit.prevent :class="[cl.brandFilterSearchForm, searchInputFocus && cl.focus]">
             <SmallSearchIcon/>
-            <Input :className="cl.brandFilterSeachInput" :placeholder="'Поиск'"/>
+            <Input
+                v-model="brandSearchQuery"
+                :className="cl.brandFilterSearchInput"
+                :placeholder="'Поиск'"
+                @focus="handleSearchInputFocus"
+                @blur="handleSearchInputBlur"
+            />
+            <InputClearButton v-show="brandSearchQuery.length > 0" v-model="brandSearchQuery"/>
         </form>
         <div :class="cl.brandFilterItems">
-            <div :class="cl.brandFilterItem" v-for="brand in allBrands" :key="brand.id">
+            <div :class="cl.brandFilterItem" v-for="brand in brandsToShow" :key="brand.id">
                 <label :class="cl.brandFilterInputShell">
-                    <Input :class="cl.brandFilterHiddenCheckbox" type="checkbox"/>
-                    <span :class="cl.brandFilterCustomCheckbox"></span>
+                    <input
+                        :class="cl.brandFilterHiddenCheckbox"
+                        type="checkbox"
+                        :checked="brandQuery.includes(brand.brand)"
+                        @change="()=>handleBrandToggle(brand.brand)"
+                    />
+                    <span :class="[cl.brandFilterCustomCheckbox, brandQuery.includes(brand.brand) ? cl.checked : '']"></span>
                     <span :class="cl.brandFilterItemName">{{brand.brand}}</span>
                 </label>
                 <h5 :class="cl.brandFilterItemCount">{{findItemsAmountForBrand(brand.brand)}}</h5>
@@ -29,17 +41,48 @@
 import {Button, Input} from "@Shared/Ui/index.js";
 import {useItemsStore} from "@Shared/Stores/index.js";
 import {storeToRefs} from "pinia";
-import {ref} from "vue";
+import {computed, ref} from "vue";
 import {InputClearButton} from "@Features/InputClearButton/index.js";
 import SmallSearchIcon from "@Shared/Assets/Icons/smallSearchIcon.svg";
 
 const store = useItemsStore()
-const { items, allBrands } = storeToRefs(store)
-const { filterItems } = store
+const { filteredItems, allBrands, brandQuery } = storeToRefs(store)
+const { setBrandQuery } = store
+
+const brandSearchQuery = ref('')
+const searchInputFocus = ref(false)
+
+const brandsToShow = computed(() => {
+    return brandSearchQuery.value === ''
+        ? allBrands.value
+        : allBrands.value.filter((brand) => brand.brand.toLowerCase().includes(brandSearchQuery.value.toLowerCase()))
+})
 
 const findItemsAmountForBrand = (brand) => {
-    console.log(brand)
-    return items.value.filter((item) => item.brand === brand).length
+    return filteredItems.value.filter((item) => item.brand === brand).length
+}
+
+const handleBrandToggle = (brand) => {
+    const curBrands = [...brandQuery.value]
+    if (curBrands.includes(brand)) {
+        const index = curBrands.indexOf(brand)
+        curBrands.splice(index, 1)
+    } else {
+        curBrands.push(brand)
+    }
+    setBrandQuery(curBrands)
+}
+
+const handleSearchInputFocus = () => {
+    searchInputFocus.value = true
+}
+
+const handleSearchInputBlur = () => {
+    searchInputFocus.value = false
+}
+
+const handleCleanBrands = () => {
+    setBrandQuery([])
 }
 
 </script>
@@ -80,29 +123,34 @@ const findItemsAmountForBrand = (brand) => {
     color: $color-font-main;
 }
 
-.brandFilterSeachForm{
-    padding: 10px 12px;
+.brandFilterSearchForm{
+    padding: 0px 12px;
     box-sizing: border-box;
     border: 1px solid $color-border;
     border-radius: 4px;
     display: flex;
     align-items: center;
+    transition: all 0.2s ease;
+    width: 100%;
+    height: 36px;
 }
 
-.brandFilterSeachForm:focus{
+.brandFilterSearchForm.focus{
     border: 1px solid $color-brand;
 }
 
-.brandFilterSeachInput{
+.brandFilterSearchInput{
     box-sizing: border-box;
     padding: 0;
     border: none;
     outline: none;
     margin-left: 8px;
-    font: $input-request;
+    font: $main-general;
+    width: 100%
+
 }
 
-.brandFilterSeachInput::placeholder{
+.brandFilterSearchInput::placeholder{
     font: $main-general;
     color: $color-font-second;
 }
@@ -160,6 +208,20 @@ const findItemsAmountForBrand = (brand) => {
     border: 1px solid $color-border;
     transition: all 0.2s ease;
     cursor: pointer;
+}
+
+.brandFilterCustomCheckbox.checked {
+    background-color: $color-brand;
+    border-color: $color-brand;
+}
+
+.brandFilterCustomCheckbox.checked::after {
+    content: '✓';
+    display: block;
+    color: white;
+    text-align: center;
+    line-height: 20px;
+    font-size: 14px;
 }
 
 .brandFilterCustomCheckbox:hover{

@@ -8,8 +8,13 @@
         <div :class="cl.sizeFilterItems">
             <div :class="cl.sizeFilterItem" v-for="size in allSizes" :key="size.id">
                 <label :class="cl.sizeFilterInputShell">
-                    <Input :class="cl.sizeFilterHiddenCheckbox" type="checkbox"/>
-                    <span :class="cl.sizeFilterCustomCheckbox"></span>
+                    <input
+                        :class="cl.sizeFilterHiddenCheckbox"
+                        type="checkbox"
+                        :checked="sizeQuery.includes(size.size)"
+                        @change="()=>handleSizeToggle(size.size)"
+                    />
+                    <span :class="[cl.sizeFilterCustomCheckbox, sizeQuery.includes(size.size) ? cl.checked : '']"></span>
                     <span :class="cl.sizeFilterItemName">{{size.size}}</span>
                 </label>
                 <h5 :class="cl.sizeFilterItemCount">{{findItemsAmountForSize(size.size)}}</h5>
@@ -19,7 +24,6 @@
 </template>
 
 <script setup>
-import {Button, Input} from "@Shared/Ui/index.js";
 import {useItemsStore} from "@Shared/Stores/index.js";
 import {storeToRefs} from "pinia";
 import {ref} from "vue";
@@ -27,11 +31,22 @@ import {InputClearButton} from "@Features/InputClearButton/index.js";
 import SmallSearchIcon from "@Shared/Assets/Icons/smallSearchIcon.svg";
 
 const store = useItemsStore()
-const { items, allSizes } = storeToRefs(store)
-const { filterItems } = store
+const { filteredItems, allSizes, sizeQuery} = storeToRefs(store)
+const { setSizeQuery } = store
 
 const findItemsAmountForSize = (size) => {
-    return items.value.filter((item) => item.size === size).length
+    return filteredItems.value.filter((item) => item.size === size).length
+}
+
+const handleSizeToggle = (size) => {
+    const curSizes = [...sizeQuery.value]
+    if (curSizes.includes(size)) {
+        const index = curSizes.indexOf(size)
+        curSizes.splice(index, 1)
+    } else {
+        curSizes.push(size)
+    }
+    setSizeQuery(curSizes)
 }
 
 </script>
@@ -45,7 +60,7 @@ const findItemsAmountForSize = (size) => {
 
 .sizeFilterTop{
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: flex-end;
 }
 
@@ -108,6 +123,20 @@ const findItemsAmountForSize = (size) => {
     border: 1px solid $color-border;
     transition: all 0.2s ease;
     cursor: pointer;
+}
+
+.sizeFilterCustomCheckbox.checked {
+    background-color: $color-brand;
+    border-color: $color-brand;
+}
+
+.sizeFilterCustomCheckbox.checked::after {
+    content: '✓';
+    display: block;
+    color: white;
+    text-align: center;
+    line-height: 20px;
+    font-size: 14px;
 }
 
 .sizeFilterCustomCheckbox:hover{

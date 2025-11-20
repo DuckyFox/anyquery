@@ -655,10 +655,6 @@ export const useItemsStore = defineStore('items', () => {
         }
     ]);
 
-    const filterItems = () => {
-        return items
-    }
-
     const allBrands = computed(() => {
         const uniqueBrands = [...new Set(items.value.map((item)=>item.brand))]
         return uniqueBrands.map((brand,index) => {
@@ -689,5 +685,87 @@ export const useItemsStore = defineStore('items', () => {
         })
     })
 
-    return { items, filterItems, allBrands, allCategories, allSizes }
+    const searchQuery = ref('')
+
+    const setSearchQuery = (newValue) => {
+        searchQuery.value = newValue.toLowerCase()
+    }
+
+    const categoryQuery = ref('Сборные модели')
+
+    const setCategoryQuery = (newValue) => {
+        categoryQuery.value = newValue
+    }
+
+    const priceQuery = ref({
+        min: 0,
+        max: 100000,
+    })
+
+    const setPriceQuery = (newValue) => {
+        priceQuery.value = newValue
+    }
+
+    const brandQuery = ref([])
+
+    const setBrandQuery = (newValue) => {
+        brandQuery.value = newValue
+    }
+
+    const sizeQuery = ref([])
+
+    const setSizeQuery = (newValue) => {
+        sizeQuery.value = newValue
+    }
+
+    const searchFilter = (item) => {
+        if (!searchQuery.value) return true;
+        return item.title.toLowerCase().includes(searchQuery.value.toLowerCase());
+    };
+
+    const categoryFilter = (item) => {
+        if (categoryQuery.value === 'Сборные модели') return true;
+        return item.category === categoryQuery.value;
+    };
+
+    const priceFilter = (item) => {
+        return item.priceWithDiscount >= priceQuery.value.min && item.priceWithDiscount <= priceQuery.value.max
+    }
+
+    const brandFilter = (item) => {
+        if (brandQuery.value.length === 0) return true
+        return brandQuery.value.includes(item.brand)
+    }
+
+    const sizeFilter = (item) => {
+        if (sizeQuery.value.length === 0) return true
+        return sizeQuery.value.includes(item.size)
+    }
+
+    const filteredItems = computed(() => {
+
+        return items.value.filter(item =>
+            searchFilter(item) &&
+            categoryFilter(item) &&
+            priceFilter(item) &&
+            brandFilter(item) &&
+            sizeFilter(item)
+        );
+    });
+
+    return {
+        items,
+        filteredItems,
+        allBrands,
+        allCategories,
+        allSizes,
+        setCategoryQuery,
+        setSearchQuery,
+        setPriceQuery,
+        categoryQuery,
+        brandQuery,
+        setBrandQuery,
+        sizeQuery,
+        setSizeQuery
+    }
 })

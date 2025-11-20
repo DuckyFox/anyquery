@@ -6,7 +6,7 @@
         <form :class="cl.priceFilterForm">
             <div :class="[cl.priceFilterInputShell, isMinActive ? cl.active : '']">
                 <p
-                    v-show="minPriceValue.length === 0"
+                    v-show="minPriceValue === ''"
                     :class="cl.priceFilterInputFakePh"
                 >
                     от
@@ -16,13 +16,14 @@
                     @focus="handleMinInputFocus"
                     @blur="handleMinInputBlur"
                     :className="cl.priceFilterInput"
-                    :placeholder="`${findMinMaxPrice[0]}`"
+                    :placeholder="`${minMaxPrices.min}`"
+                    :type="'number'"
                 />
             </div>
             <DividerIcon :class="cl.priceFilterDivider"/>
             <div :class="[cl.priceFilterInputShell, isMaxActive ? cl.active : '']">
                 <p
-                    v-show="maxPriceValue.length === 0"
+                    v-show="maxPriceValue === ''"
                     :class="cl.priceFilterInputFakePh"
                 >
                     до
@@ -32,7 +33,8 @@
                     @focus="handleMaxInputFocus"
                     @blur="handleMaxInputBlur"
                     :className="cl.priceFilterInput"
-                    :placeholder="`${findMinMaxPrice[1]}`"
+                    :placeholder="`${minMaxPrices.max}`"
+                    :type="'number'"
                 />
             </div>
         </form>
@@ -44,11 +46,12 @@ import {Input} from "@Shared/Ui/index.js";
 import DividerIcon from '@Shared/Assets/Icons/dividerIcon.svg'
 import {useItemsStore} from "@Shared/Stores/index.js";
 import {storeToRefs} from "pinia";
-import {computed, ref} from "vue";
+import {computed, onMounted, ref, watch} from "vue";
+import {debounce} from "@Shared/Lib/index.js";
 
 const store = useItemsStore()
-const { items } = storeToRefs(store)
-const { filterItems } = store
+const { filteredItems } = storeToRefs(store)
+const {setPriceQuery} = store
 
 const minPriceValue = ref('')
 const maxPriceValue = ref('')
@@ -56,12 +59,70 @@ const maxPriceValue = ref('')
 const isMinActive = ref(false)
 const isMaxActive = ref(false)
 
-const findMinMaxPrice = computed(() => {
-    if (!items.value || items.value.length === 0) {
-        return [0, 0];
+const isMinCorrect = ref(true)
+const isMaxCorrect = ref(true)
+
+const minMaxPrices = computed(() => {
+    if (!filteredItems.value || filteredItems.value.length === 0) {
+        return {
+            min: 0,
+            max: 100000
+        };
     }
-    const prices = items.value.map(i => i.priceWithDiscount).sort((a, b) => a - b);
-    return [prices[0], prices[prices.length - 1]];
+    const prices = filteredItems.value.map(i => i.priceWithDiscount).sort((a, b) => a - b);
+    return {
+        min: prices[0],
+        max: prices[prices.length - 1]
+    };
+})
+
+const validatePriceInput = () => {
+    const minStr = minPriceValue.value
+    const maxStr = maxPriceValue.value
+    if (minStr === '') {
+        isMinCorrect.value = true
+    } else {
+        const numberedMinValue = Number(minStr)
+        isMinCorrect.value = !isNaN(numberedMinValue) &&
+            numberedMinValue >= 0 &&
+            isFinite(numberedMinValue)
+    }
+    if (maxStr === '') {
+        isMaxCorrect.value = true
+    } else {
+        const numberedMaxValue = Number(maxStr)
+        isMaxCorrect.value = !isNaN(numberedMaxValue) &&
+            numberedMaxValue >= 0 &&
+            isFinite(numberedMaxValue)
+    }
+
+    if (isMinCorrect.value && isMaxCorrect.value) {
+        const minNum = minStr === '' ? 0 : Number(minStr)
+        const maxNum = maxStr === '' ? Infinity : Number(maxStr)
+        if (minNum > maxNum) {
+            isMinCorrect.value = false
+            isMaxCorrect.value = false
+        }
+    }
+}
+
+const handleInputAction = () => {
+    validatePriceInput()
+    const min = minPriceValue.value === '' ? 0 : Number(minPriceValue.value)
+    const max = maxPriceValue.value === '' ? minMaxPrices.value.max : Number(maxPriceValue.value)
+    setPriceQuery({ min, max })
+    if (isMinCorrect.value && isMaxCorrect.value) {
+        setPriceQuery({
+            min,
+            max
+        })
+    }
+}
+
+const debouncedHandleInputAction = debounce(handleInputAction, 200)
+
+watch([minPriceValue, maxPriceValue], ()=> {
+    debouncedHandleInputAction()
 })
 
 const handleMinInputFocus = () => {
@@ -144,6 +205,9 @@ const handleMaxInputBlur = () => {
 
     .priceFilterInputShell.active{
         border: 1px solid $color-brand;
+    }
 
+    .priceFilterInputShell.wrong{
+        border: 1px solid darkred;
     }
 </style>

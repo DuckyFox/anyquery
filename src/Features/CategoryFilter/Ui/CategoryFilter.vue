@@ -1,14 +1,22 @@
 <template>
     <div>
-        <div :class="cl.topCategory">
+        <div
+            :class="cl.topCategory"
+            @click="()=>{setCategoryQuery('Сборные модели')}"
+        >
             <h4 :class="cl.topCategoryTitle">
                 Сборные модели
             </h4>
             <h5 :class="cl.topCategoryAmount">
-                {{items.length}}
+                {{filteredItems.length}}
             </h5>
         </div>
-        <div :class="cl.bottomCategory" v-for="category in allCategories" :key="category.id">
+        <div
+            :class="cl.bottomCategory"
+            v-for="category in allCategories"
+            :key="category.id"
+            @click="()=>{setCategoryQuery(category.category)}"
+        >
             <h4 :class="cl.bottomCategoryTitle">
                 {{category.category}}
             </h4>
@@ -22,13 +30,14 @@
 <script setup>
 import {useItemsStore} from "@Shared/Stores/index.js";
 import {storeToRefs} from "pinia";
+import {watch} from "vue";
 
 const store = useItemsStore()
-const { items, allCategories } = storeToRefs(store)
-const { filterItems } = store
+const { items, filteredItems, allCategories, categoryQuery } = storeToRefs(store)
+const { setCategoryQuery } = store
 
 const findItemsAmountForCategory = (category) => {
-    return items.value.filter((item) => item.category === category).length
+    return filteredItems.value.filter((item) => item.category === category).length
 }
 
 </script>

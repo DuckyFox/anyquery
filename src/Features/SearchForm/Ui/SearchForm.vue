@@ -1,12 +1,12 @@
 <template>
-  <form :class="cl.searchForm">
-    <NormalSearchIcon :class="cl.searchIcon" />
-    <Input :className="cl.searchInput" v-model="searchValue" :placeholder="'Поиск по 100 000 товаров'"/>
+  <form :class="cl.searchForm" @submit="handleFormSubmit">
+    <NormalSearchIcon v-if="width > 375" :class="cl.searchIcon" />
+    <Input :className="cl.searchInput" v-model="localSearchValue" :placeholder="'Поиск по 100 000 товаров'"/>
     <div :class="cl.buttonsBlock">
-      <InputClearButton v-show="searchValue.length !== 0" v-model="searchValue"/>
+      <InputClearButton  v-show="localSearchValue.length !== 0" v-model="localSearchValue"/>
       <Button
           :class="cl.searchButton"
-          v-show="searchValue.length !== 0"
+          v-show="localSearchValue.length !== 0"
       >
         <h4>
           Найти
@@ -21,23 +21,49 @@ import Input from '@/Shared/Ui/Input.vue'
 import Button from "@/Shared/Ui/Button.vue";
 import NormalSearchIcon from '@/Shared/Assets/Icons/normalSearchIcon.svg';
 import {InputClearButton} from "@Features/InputClearButton/index.js";
-import {ref} from "vue";
+import {ref, watch} from "vue";
+import {useItemsStore} from "@Shared/Stores/index.js";
+import {storeToRefs} from "pinia";
+import {useWindowSize} from "@vueuse/core";
 
-const searchValue = ref("");
+const { width } = useWindowSize()
+const store = useItemsStore()
+const {filterItems} = storeToRefs(store)
+const {setSearchQuery} = store
+
+const localSearchValue = ref("");
+
+watch(localSearchValue, ()=>{
+    localSearchValue.value.length === 0 && setSearchQuery('')
+})
+
+const handleFormSubmit = (e) => {
+    e.preventDefault()
+    setSearchQuery(localSearchValue.value.trim())
+}
 
 </script>
 
 <style module="cl" lang="scss">
-  .searchForm{
-    position: relative;
-    border: 1px solid #73AFF4;
-    border-radius: 10px;
-    display: flex;
-    align-items: center;
-    max-width: 1015px;
-    width: 100%;
-    min-height: 46px;
-  }
+    .searchForm{
+        position: relative;
+        border: 1px solid #73AFF4;
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        max-width: 1015px;
+        width: 100%;
+        height: 46px;
+        @media (max-width: 375px) {
+            max-width: 307px;
+            padding: 0 0 6px 0;
+            border-radius: 0;
+            border: none;
+            border-bottom: 1px solid $color-border;
+            width: 100%;
+            height: 45px;
+        }
+    }
 
   .searchInput {
     background-color: transparent;
@@ -49,6 +75,9 @@ const searchValue = ref("");
     font-weight: 400;
     font-size: 16px;
     line-height: 150%;
+      @media (max-width: 375px) {
+          max-width: 140px;
+      }
   }
 
   .searchInput::placeholder {
@@ -90,5 +119,8 @@ const searchValue = ref("");
     justify-content: space-between;
     position: absolute;
     right: 16px;
+      @media (max-width: 375px) {
+          right: 0;
+      }
   }
 </style>

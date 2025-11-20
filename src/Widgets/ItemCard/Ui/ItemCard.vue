@@ -1,8 +1,10 @@
 <template>
     <div :class="cl.card">
-        <div :class="cl.cardTop">
+        <div
+            :class="cl.cardTop"
+        >
             <img v-if="item.imageLink !== ''" :src="item.imageLink" :alt="'картинка товара'"/>
-            <NoImageItemIcon v-else/>
+            <NoImageItemIcon :class="[cl.cardNoImageIcon, isHovered && cl.hovered, !item.isInStock && cl.notInStock]" v-else/>
             <div :class="cl.popularMark" v-if="item.isBestseller">
                 <h5 :class="cl.popularMarkTitle">
                     Хит продаж
@@ -17,7 +19,12 @@
             <h5 :class="cl.cardBrand">
                 {{ item.brand }}
             </h5>
-            <h4 :class="cl.cardName" :aria-label="item.title">
+            <h4
+                @mouseenter="handleCardMouseEnter"
+                @mouseleave="handleCardMouseLeave"
+                :class="cl.cardName"
+                :aria-label="item.title"
+            >
                 {{ item.title }}
             </h4>
             <div :class="cl.cardInStock" v-if="item.isInStock">
@@ -41,7 +48,7 @@
 </template>
 
 <script setup>
-import {toRefs} from "vue";
+import {ref, toRefs} from "vue";
 import NoImageItemIcon from '@Shared/Assets/Icons/noImageItemIcon.svg'
 import PopularItemIcon from '@Shared/Assets/Icons/popularItemIcon.svg'
 import {Button} from "@Shared/Ui/index.js";
@@ -53,6 +60,16 @@ const props = defineProps({
     }
 })
 
+const isHovered = ref(false)
+
+const handleCardMouseEnter = () => {
+    isHovered.value = true
+}
+
+const handleCardMouseLeave = () => {
+    isHovered.value = false
+}
+
 const { item } = toRefs(props)
 </script>
 
@@ -60,6 +77,10 @@ const { item } = toRefs(props)
     .card{
         max-width: 333px;
         width: 100%;
+        @media (max-width: 1440px) {
+            max-width: 213px;
+            min-height: 372px;
+        }
     }
 
     .cardTop{
@@ -69,6 +90,20 @@ const { item } = toRefs(props)
         position: relative;
         min-height: 200px;
         background-color: #F8F8FA;
+        cursor: pointer;
+    }
+
+    .cardNoImageIcon{
+        cursor: pointer;
+        transition: all 0.2s ease;
+    }
+
+    .cardNoImageIcon.notInStock path{
+        opacity: 50%;
+    }
+
+    .cardNoImageIcon.hovered{
+        transform: scale(1.28);
     }
 
     .popularMark{
@@ -122,6 +157,18 @@ const { item } = toRefs(props)
         text-overflow: ellipsis;
         overflow: hidden;
         min-height: 32px;
+        transition: all 0.2s ease;
+        cursor: pointer;
+        @media (max-width: 1440px) {
+            min-height: 48px;
+        }
+        @media (max-width: 375px) {
+            -webkit-line-clamp: 3;
+        }
+    }
+
+    .cardName:hover{
+        color: $color-brand;
     }
 
     .cardInStock{
@@ -176,5 +223,9 @@ const { item } = toRefs(props)
         min-height: 36px;
         font: $header-general-AC;
         cursor: pointer;
+
+        @media (max-width: 1440px) {
+            margin-top: 40px;
+        }
     }
 </style>
